@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem.EnhancedTouch;
@@ -38,15 +39,17 @@ public class ARObjectPlace : MonoBehaviour
             Vector3 Position = RayHit[0].pose.position;
             Quaternion Rot = RayHit[0].pose.rotation;
 
-            Instantiate(raycastManager.raycastPrefab, Position, Rot);
-            //StartCoroutine(Release());
+            GameObject GObj - Instantiate(raycastManager.raycastPrefab, Position, Rot);
+            GObj.transform.localScale = Vector3.zero;
+            GObj.transform.DoScale(1f, 2f);
+            StartCoroutine(Release());
         }
     }
-/*
+
     System.Collections.IEnumerator Release()
     {
         yield return new WaitForSeconds(0.25f);
         IsTap = false;
     }
-*/
+
 }
